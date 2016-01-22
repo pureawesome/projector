@@ -17,9 +17,9 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: localhost
-  username: postgres
-  password: postgres
+  host: <%= ENV['IP'] &>
+  username: <%= ENV['PROJECTOR_DATABASE_USER'] &>
+  password: <%= ENV['PROJECTOR_DATABASE_PASSWORD'] &>
   template: template0
   
   # For details on connection pooling, see rails configuration guide
@@ -86,5 +86,3 @@ test:
 production:
   <<: *default
   database: projector_production
-  username: projector
-  password: <%= ENV['PROJECTOR_DATABASE_PASSWORD'] %>
