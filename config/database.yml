@@ -17,10 +17,9 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: <%= ENV['IP'] &>
-  username: <%= ENV['PROJECTOR_DATABASE_USER'] &>
-  password: <%= ENV['PROJECTOR_DATABASE_PASSWORD'] &>
-  template: template0
+  host: <%= ENV['IP'] %>
+  username: <%= ENV['PROJECTOR_DATABASE_USER'] %>
+  password: <%= ENV['PROJECTOR_DATABASE_PASSWORD'] %>
   
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
