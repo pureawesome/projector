@@ -1,1 +1,18 @@
-0 projects
+<%= "#{pluralize(@projects.count, "projects")}" %>
+
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @projects.each do |p| %>
+      <td>
+        <%= p.name %>
+      </td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>

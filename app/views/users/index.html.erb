@@ -1,1 +1,18 @@
-0 users
+<%= "#{pluralize(@users.count, "users")}" %>
+
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @users.each do |p| %>
+      <td>
+        <%= p.first_name %>
+      </td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>

@@ -6,8 +6,8 @@ class CreateProjects < ActiveRecord::Migration
       t.datetime :start_date
       t.datetime :end_date_projected
       t.datetime :end_date_actual
-      t.float :budget
-      t.float :cost
+      t.decimal :budget, precision: 9, scale: 2
+      t.decimal :cost, precision: 9, scale: 2
       
       t.timestamps
     end
