@@ -1,4 +1,4 @@
-<%= "#{pluralize(@projects.count, "projects")}" %>
+<%= "#{pluralize(@tasks.count, "tasks")}" %>
 
 <table>
   <thead>
@@ -8,9 +8,9 @@
   </thead>
   <tbody>
     <tr>
-      <% @projects.each do |p| %>
+      <% @tasks.each do |t| %>
       <td>
-        <%= link_to p.name, p %>
+        <%= t.name %>
       </td>
       <% end %>
     </tr>
