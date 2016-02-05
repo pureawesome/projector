@@ -1,9 +1,9 @@
-<%= "#{pluralize(@tasks.count, "tasks")}" %>
+<h1><%= @project.name %></h1>
 
 <table>
   <thead>
     <tr>
-      <td>Name</td>
+      <td><%= "#{pluralize(@tasks.count, "tasks")}" %></td>
     </tr>
   </thead>
   <tbody>

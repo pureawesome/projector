@@ -1,16 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe 'User', type: :model do
-  before(:each) do
-    @user1 = User.new(  first_name: 'Test First', 
-                        last_name: 'Test Last', 
-                        email: 'test@test.com', 
-                        role: 1, 
-                        status: 1)
+RSpec.describe User, type: :model do
+  before(:all) do
+    @project1 = FactoryGirl.build(:project)
   end
-  it 'should have a first name field' do
-    expect(@user1.first_name).to eq('Test First')
+  it 'has a valid factory' do
+    expect(@project1).to be_valid
   end
+  it { is_expected.to have_db_column(:first_name) }
+
   it 'should have a last name field' do
     expect(@user1.last_name).to eq('Test Last')
   end

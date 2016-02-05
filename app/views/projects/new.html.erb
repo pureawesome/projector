@@ -1,0 +1,35 @@
+<h1>Create a project</h1>
+
+<%= form_for @project do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %>
+    <%= f.text_field :start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date_projected %>
+    <%= f.text_field :end_date_projected %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date_actual %>
+    <%= f.text_field :end_date_actual %>
+  </div>
+  <div class="field">
+    <%= f.label :budget %>
+    <%= f.text_field :budget %>
+  </div>
+  <div class="field">
+    <%= f.label :cost %>
+    <%= f.text_field :cost %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
