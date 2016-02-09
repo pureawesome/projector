@@ -1,6 +1,6 @@
 <h1>Create a Task</h1>
 
-<%= form_for([:project, @task]) do |f| %>
+<%= form_for @task, :url => project_tasks_path do |f| %>
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>

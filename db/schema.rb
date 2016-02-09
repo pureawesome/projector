@@ -29,9 +29,15 @@ ActiveRecord::Schema.define(version: 20160209214124) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string  "name"
-    t.integer "project_id"
-    t.integer "user_id"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "start_date"
+    t.datetime "due_date"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "project_id"
+    t.integer  "user_id"
   end
 
   add_index "tasks", ["project_id"], name: "index_tasks_on_project_id", using: :btree
