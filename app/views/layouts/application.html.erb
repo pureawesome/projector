@@ -9,7 +9,15 @@
 <body>
   <%= render 'layouts/messages' %>
 
-  <%= yield %>
+  <div id="main-container" class="container-fluid">
+    <nav class="col-xs-12">
+      <%= render "menu" %>
+    </nav>
+
+    <div id="main-content" class="col-xs-12">
+      <%= yield %>
+    </div>
+  </div>
 
 </body>
 </html>

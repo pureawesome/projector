@@ -38,6 +38,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'faker'
+
+  gem 'bootstrap-sass'
+  gem 'autoprefixer-rails'
 end
 
 group :development do
