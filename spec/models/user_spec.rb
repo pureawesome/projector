@@ -7,18 +7,11 @@ RSpec.describe User, type: :model do
   it 'has a valid factory' do
     expect(@project1).to be_valid
   end
-  it { is_expected.to have_db_column(:first_name) }
 
-  it 'should have a last name field' do
-    expect(@user1.last_name).to eq('Test Last')
-  end
-  it 'should have a email field' do
-    expect(@user1.email).to eq('test@test.com')
-  end
-  it 'should have a role field' do
-    expect(@user1.role).to eq(1)
-  end
-  it 'should have a status field' do
-    expect(@user1.role).to eq(1)
-  end
+  it { is_expected.to have_db_column(:first_name) }
+  it { is_expected.to have_db_column(:last_name) }
+  it { is_expected.to have_db_column(:email) }
+  it { is_expected.to have_db_column(:role) }
+  it { is_expected.to have_db_column(:status) }
+
 end

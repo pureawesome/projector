@@ -23,7 +23,7 @@ RSpec.feature 'Creating a new project', type: :feature do
     visit '/projects'
     click_link 'New Project'
 
-    expect(current_url).to eq(new_project_url)
+    expect(current_path).to eq(new_project_path)
 
     fill_in 'project_name', with: ''
     fill_in 'project_description', with: 'Test Project Description'
@@ -32,7 +32,7 @@ RSpec.feature 'Creating a new project', type: :feature do
     fill_in 'project_budget', with: 3000
     click_button 'Create Project'
 
-    expect(current_path).to eq(new_project_path)
+    expect(current_path).to eq(projects_path)
     expect(page).to have_content('error')
   end
 end

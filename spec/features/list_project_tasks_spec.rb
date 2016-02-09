@@ -7,7 +7,7 @@ RSpec.feature 'Listing all tasks for project' do
     click_link 'Projects'
 
     expect(page.current_url).to eq(projects_url)
-    click_link 'Test Project 1'
+    click_link 'Task Project 1'
     expect(page.current_url).to eq(project_url(project1.id))
 
     # click_link 'Tasks'
@@ -27,7 +27,7 @@ RSpec.feature 'Listing all tasks for project' do
 
     expect(page.current_url).to eq(projects_url)
     click_link 'Task Project 2'
-    expect(page.current_url).to eq(project_url(project1.id))
+    expect(page.current_url).to eq(project_url(project2.id))
 
     expect(page).to have_content('3 tasks')
     expect(page).to have_content(task3.name)
