@@ -8,9 +8,9 @@
   </thead>
   <tbody>
     <tr>
-      <% @users.each do |p| %>
+      <% @users.each do |u| %>
       <td>
-        <%= p.first_name %>
+        <%= link_to(u.first_name, u) %>
       </td>
       <% end %>
     </tr>

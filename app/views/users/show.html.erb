@@ -1,1 +1,20 @@
 <h1><%= @user.first_name %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <td><%= "#{pluralize(@tasks.count, "tasks")}" %></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @tasks.each do |t| %>
+      <td>
+        <%= t.name %>
+      </td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to('Back to Users', users_path) %>
