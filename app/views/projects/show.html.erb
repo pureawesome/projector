@@ -7,13 +7,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <% @tasks.each do |t| %>
-      <td>
-        <%= t.name %>
-      </td>
-      <% end %>
-    </tr>
+    <% @tasks.each do |t| %>
+      <tr>
+        <td>
+          <%= link_to t.name, project_task_url(@project, t) %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 <%= link_to('Create a new task', new_project_task_path(@project)) %>

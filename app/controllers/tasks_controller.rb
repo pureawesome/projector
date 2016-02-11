@@ -4,17 +4,22 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = Task.new
+    @project = Project.find(params[:project_id])
+    @task = Task.new(:project_id=>params[:project_id])
   end
 
   def create
     @task = Task.new(task_params)
-    @project = @task.project_id
     if @task.save
-      redirect_to @task, notice: 'Task successfully created.'
+      redirect_to project_task_url(params[:project_id], @task.id), notice: 'Task successfully created.'
     else
       render :new
     end
+  end
+
+  def show
+    @task = Task.find(params[:id])
+    @project = Project.find(params[:project_id])
   end
 
   private

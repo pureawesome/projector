@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @tasks = @project.tasks
+    @tasks = Task.where(:project_id === @project.id)
   end
 
   private
