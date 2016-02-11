@@ -1,26 +1,26 @@
 <h1>Create a user</h1>
 
 <%= form_for @user do |f| %>
-  <div class="field">
+  <fieldset class="field form-group">
     <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
+    <%= f.text_field :first_name, :class => "form-control" %>
+  </fieldset>
+  <fieldset class="field form-group">
     <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
+    <%= f.text_field :last_name, :class => "form-control" %>
+  </fieldset>
+  <fieldset class="field form-group">
     <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
+    <%= f.email_field :email, :class => "form-control" %>
+  </fieldset>
+  <fieldset class="field form-group">
     <%= f.label :role %>
-    <%= f.text_field :role %>
-  </div>
-  <div class="field">
+    <%= f.select(:status, options_for_select([['Admin', 1], ['User', 2], ['Guest', 3]], 2)) %>
+  </fieldset>
+  <fieldset class="field form-group">
     <%= f.label :status %>
-    <%= f.text_field :status %>
-  </div>
+    <%= f.select(:status, options_for_select([['Active', 1], ['Blocked', 2]], 1)) %>
+  </fieldset>
   <div class="actions">
     <%= f.submit %>
   </div>

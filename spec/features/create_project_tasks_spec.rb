@@ -17,8 +17,9 @@ RSpec.feature 'Adding tasks to a project' do
     click_button 'Create Task'
 
     expect(page.current_url).to eq(project_task_url(project1, Task.last))
-    click_button 'Back to Project'
+    click_link 'Back to Project'
     expect(page.current_url).to eq(project_url(project1))
 
+    expect(page).to have_content('Test Task')
   end
 end

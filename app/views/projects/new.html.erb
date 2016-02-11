@@ -1,34 +1,34 @@
 <h1>Create a project</h1>
 
 <%= form_for @project do |f| %>
-  <div class="field">
+  <fieldset class="field form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
+    <%= f.text_field :name, :class => "form-control" %>
+  </fieldset>
+  <fieldset class="field form-group">
     <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
+    <%= f.text_field :description, :class => "form-control" %>
+  </fieldset>
+  <fieldset class="field form-group">
     <%= f.label :start_date %>
-    <%= f.text_field :start_date %>
-  </div>
-  <div class="field">
+    <%= f.date_field :start_date, :class => "form-control" %>
+  </fieldset>
+  <fieldset class="field form-group">
     <%= f.label :end_date_projected %>
-    <%= f.text_field :end_date_projected %>
-  </div>
-  <div class="field">
+    <%= f.date_field :end_date_projected, :class => "form-control" %>
+  </fieldset>
+  <fieldset class="field form-group">
     <%= f.label :end_date_actual %>
-    <%= f.text_field :end_date_actual %>
-  </div>
-  <div class="field">
+    <%= f.date_field :end_date_actual, :class => "form-control" %>
+  </fieldset>
+  <fieldset class="field form-group">
     <%= f.label :budget %>
-    <%= f.text_field :budget %>
-  </div>
-  <div class="field">
+    <%= f.number_field :budget, :class => "form-control" %>
+  </fieldset>
+  <fieldset class="field form-group">
     <%= f.label :cost %>
-    <%= f.text_field :cost %>
-  </div>
+    <%= f.text_field :cost, :class => "form-control" %>
+  </fieldset>
   <div class="actions">
     <%= f.submit %>
   </div>

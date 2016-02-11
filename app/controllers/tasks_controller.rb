@@ -4,7 +4,6 @@ class TasksController < ApplicationController
   end
 
   def new
-    @project = Project.find(params[:project_id])
     @task = Task.new(:project_id=>params[:project_id])
   end
 
