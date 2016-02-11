@@ -15,11 +15,11 @@
   </fieldset>
   <fieldset class="field form-group">
     <%= f.label :role %>
-    <%= f.select(:status, options_for_select([['Admin', 1], ['User', 2], ['Guest', 3]], 2)) %>
+    <%= f.select(:status, options_for_select([['Admin', 1], ['User', 2], ['Guest', 3]], 2), {}, {:class => "form-control"}) %>
   </fieldset>
   <fieldset class="field form-group">
     <%= f.label :status %>
-    <%= f.select(:status, options_for_select([['Active', 1], ['Blocked', 2]], 1)) %>
+    <%= f.select(:status, options_for_select([['Active', 1], ['Blocked', 2]], 1), {}, {:class => "form-control"}) %>
   </fieldset>
   <div class="actions">
     <%= f.submit %>

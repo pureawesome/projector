@@ -11,19 +11,19 @@
   </fieldset>
   <fieldset class="field form-group">
     <%= f.label :start_date %>
-    <%= f.text_field :start_date, :class => "form-control"  %>
+    <%= f.date_field :start_date, :class => "form-control"  %>
   </fieldset>
   <fieldset class="field form-group">
     <%= f.label :due_date %>
-    <%= f.text_field :due_date, :class => "form-control"  %>
+    <%= f.date_field :due_date, :class => "form-control"  %>
   </fieldset>
   <fieldset class="field form-group">
     <%= f.label :status %>
-    <%= f.select :status, options_for_select([['Active', 1], ['Completed', 2]], 1) %>
+    <%= f.select(:status, options_for_select([['Active', 1], ['Completed', 2]], 1), {}, {:class => "form-control"}) %>
   </fieldset>
   <fieldset class="field form-group">
     <%= f.label :user_id %>
-    <%= f.select :user_id, options_for_select(User.all.map {|u| [u.first_name + ' ' + u.last_name, u.id]})  %>
+    <%= f.select(:user_id, options_for_select(User.all.map {|u| [u.first_name + ' ' + u.last_name, u.id]}), {include_blank: "Unassigned"}, {:class => "form-control"})  %>
   </fieldset>
   <div class="actions">
     <%= f.submit %>
