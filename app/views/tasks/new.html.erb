@@ -1,31 +1,3 @@
-<h1>Create a Task</h1>
+<h1>Create a Task for <%= @project.name %></h1>
 
-<%= form_for [:project, @task] do |f| %>
-  <fieldset class="field form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, :class => "form-control"  %>
-  </fieldset>
-  <fieldset class="field form-group">
-    <%= f.label :description %>
-    <%= f.text_area :description, :class => "form-control"  %>
-  </fieldset>
-  <fieldset class="field form-group">
-    <%= f.label :start_date %>
-    <%= f.date_field :start_date, :class => "form-control"  %>
-  </fieldset>
-  <fieldset class="field form-group">
-    <%= f.label :due_date %>
-    <%= f.date_field :due_date, :class => "form-control"  %>
-  </fieldset>
-  <fieldset class="field form-group">
-    <%= f.label :status %>
-    <%= f.select(:status, options_for_select([['Active', 1], ['Completed', 2]], 1), {}, {:class => "form-control"}) %>
-  </fieldset>
-  <fieldset class="field form-group">
-    <%= f.label :user_id %>
-    <%= f.select(:user_id, options_for_select(User.all.map {|u| [u.first_name + ' ' + u.last_name, u.id]}), {include_blank: "Unassigned"}, {:class => "form-control"})  %>
-  </fieldset>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<%= render 'form' %>

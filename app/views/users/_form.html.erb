@@ -1,0 +1,28 @@
+<%= form_for @user do |f| %>
+  <%= render 'shared/errors', object: @user %>
+  <fieldset>
+    <div class="field form-group">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, :class => "form-control" %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, :class => "form-control" %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, :class => "form-control" %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :role %>
+      <%= f.select(:role, options_for_select([['Admin', 1], ['User', 2], ['Guest', 3]], 2), {}, {:class => "form-control"}) %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :status %>
+      <%= f.select(:status, options_for_select([['Active', 1], ['Blocked', 2]], 1), {}, {:class => "form-control"}) %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </fieldset>
+<% end %>

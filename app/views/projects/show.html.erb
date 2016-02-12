@@ -1,21 +1,20 @@
 <h1><%= @project.name %></h1>
+<p><%= @project.description %></p>
+<p><%= @project.start_date.to_s %></p>
+<p><%= @project.end_date_projected.to_s %></p>
+<p><%= @project.end_date_actual.to_s %></p>
+<p><%= @project.budget %></p>
+<p><%= @project.cost %></p>
 
-<table>
-  <thead>
-    <tr>
-      <td><%= "#{pluralize(@tasks.count, "tasks")}" %></td>
-    </tr>
-  </thead>
-  <tbody>
-    <% @tasks.each do |t| %>
-      <tr>
-        <td>
-          <%= link_to t.name, project_task_url(@project, t) %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= link_to('Create a new task', new_project_task_path(@project)) %>
+<ul>
+  <h3><%= "#{pluralize(@tasks.count, "tasks")}" %></h3>
+  <% @tasks.each do |t| %>
+    <li><%= link_to t.name, project_task_url(@project, t) %></li>
+  <% end %>
+</ul>
 
-<%= link_to('Back to Projects', projects_path) %>
+<p><%= link_to('Edit Project', edit_project_path(@project)) %></p>
+
+<p><%= link_to('Create a new task', new_project_task_path(@project)) %></p>
+
+<p><%= link_to('Back to Projects', projects_path) %></p>

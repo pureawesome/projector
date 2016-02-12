@@ -10,8 +10,8 @@ RSpec.feature 'Creating a new user', type: :feature do
     fill_in 'user_first_name', with: 'Test User First'
     fill_in 'user_last_name', with: 'Test User Last'
     fill_in 'user_email', with: 'test@test.com'
-    fill_in 'user_role', with: 'admin'
-    fill_in 'user_status', with: 1
+    select 'Admin', :from => 'Role'
+    select 'Active', :from => 'Status'
     click_button 'Create User'
 
     expect(current_path).to eq(user_path(User.last))
