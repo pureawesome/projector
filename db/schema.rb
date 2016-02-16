@@ -53,13 +53,14 @@ ActiveRecord::Schema.define(version: 20160212043056) do
     t.string   "status"
     t.integer  "project_id"
     t.integer  "projects_id"
+    t.integer  "user_id"
+    t.integer  "users_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   add_index "tasks", ["projects_id"], name: "index_tasks_on_projects_id", using: :btree
-  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree
+  add_index "tasks", ["users_id"], name: "index_tasks_on_users_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"

@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    @user = User.new(user_params)
     if @user.save
       redirect_to @user, notice: 'User successfully created.'
     else
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(project_params)
+    if @user.update(user_params)
       redirect_to @user, notice: 'User successfully updated.'
     else
       render :edit

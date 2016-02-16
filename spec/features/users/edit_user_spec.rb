@@ -23,7 +23,7 @@ RSpec.feature 'Edit a user', type: :feature do
 
     expect(page).to have_content('New Edit User First')
     expect(page).to have_content('User successfully updated.')
-
+    expect(current_path).to eq(user_path(User.last))
   end
 
   scenario 'fails if the name is removed' do
@@ -43,9 +43,10 @@ RSpec.feature 'Edit a user', type: :feature do
     expect(page).to have_content('Test User')
     click_link 'Edit User'
 
+    expect(current_path).to eq(edit_user_path(User.last))
     fill_in 'user_first_name', with: ''
     click_button 'Update User'
 
-    expect(page).to have_content('error.')
+    expect(page).to have_content('error')
   end
 end
