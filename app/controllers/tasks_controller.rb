@@ -30,6 +30,11 @@ class TasksController < ApplicationController
   end
 
   def update
+    if @task.update(task_params)
+      redirect_to [@project, @task], notice: 'Task successfully updated.'
+    else
+      render :edit
+    end
   end
 
   private

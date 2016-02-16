@@ -1,9 +1,9 @@
 <h1><%= @project.name %></h1>
 <p><%= @project.description %></p>
 <p><%= @project.start_date.strftime("Started: %m/%d/%Y") %></p>
-<p><%= @project.end_date_projected.strftime("Projected End: %m/%d/%Y") %></p>
+<p><%= @project.end_date_projected %></p>
 <p><%= @project.end_date_actual.to_s %></p>
-<p><%= "Budget: #{sprintf('%.2f', @project.budget)}" %></p>
+<p><%= @project.budget %></p>
 <p><%= @project.cost %></p>
 
 <table class="table">
