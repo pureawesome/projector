@@ -20,12 +20,11 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    # @tasks = Task.where(:project_id === @project.id)
     @tasks = @project.tasks
+    @resources = @project.resources
   end
 
   def edit
-
   end
 
   def update

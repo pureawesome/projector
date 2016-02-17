@@ -27,6 +27,25 @@
   </tbody>
 </table>
 
+<table class="table">
+  <thead>
+    <tr>
+      <td><%= "#{pluralize(@tasks.count, "assigned resources")}" %></h3>
+      </td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td>Due Date</td>
+      <td>Status</td>
+    </tr>
+  <thead>
+  <tbody>
+    <% @resources.each do |r| %><tr>
+      <td><%= link_to r.name, resource_url(@resource) %></td>
+    </tr><% end %>
+  </tbody>
+</table>
+
 <p class="btn btn-lg btn-default"><%= link_to('Edit Project', edit_project_path(@project)) %></p>
 <p class="btn btn-lg btn-default"><%= link_to('Create a new task', new_project_task_path(@project)) %></p>
 <p class="btn btn-default"><%= link_to('Back to Projects', projects_path) %></p>
