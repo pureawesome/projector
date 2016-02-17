@@ -1,6 +1,10 @@
 <h1><%= @task.name %></h1>
 
-<p><%= @task.due_date %></>
+<p><%= @task.description %></p>
+<p><%= @task.start_date %></p>
+<p><%= @task.due_date %></p>
+<p><%= @task.status %></p>
+<p>Assigned to: <%= @user.first_name %></p>
 
 <p class="btn btn-lg btn-default"><%= link_to('Edit Task', edit_project_task_path(@project, @task)) %></p>
 <p class="btn btn-default"><%= link_to('Back to Project', project_path(@project)) %></p>

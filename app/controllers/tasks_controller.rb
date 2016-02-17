@@ -22,7 +22,7 @@ class TasksController < ApplicationController
   end
 
   def show
-
+    @user = User.find(@task(:user_id))
   end
 
   def edit
