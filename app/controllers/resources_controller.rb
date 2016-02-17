@@ -14,11 +14,24 @@ class ResourcesController < ApplicationController
     if @resource.save
       redirect_to @resource, notice: 'Resource successfully created.'
     else
+      flash.now[:alert] = "Resource not saved"
       render :new
     end
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @resource.update(resource_params)
+      redirect_to @resource, notice: 'Resource successfully updated.'
+    else
+      flash.now[:alert] = "Resource not updated"
+      render :edit
+    end
   end
 
   private

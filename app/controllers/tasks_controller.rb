@@ -35,6 +35,7 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       redirect_to [@project, @task], notice: 'Task successfully updated.'
     else
+      flash.now[:alert] = "Task not updated"
       render :edit
     end
   end

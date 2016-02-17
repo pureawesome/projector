@@ -14,13 +14,14 @@ class ProjectsController < ApplicationController
     if @project.save
       redirect_to @project, notice: 'Project successfully created.'
     else
+      flash.now[:alert] = "Project not saved"
       render :new
     end
   end
 
   def show
-    @tasks = Task.where(:project_id === @project.id)
-    # @tasks = @project.tasks
+    # @tasks = Task.where(:project_id === @project.id)
+    @tasks = @project.tasks
   end
 
   def edit
@@ -31,6 +32,7 @@ class ProjectsController < ApplicationController
     if @project.update(project_params)
       redirect_to @project, notice: 'Project successfully updated.'
     else
+      flash.now[:alert] = "Project not updated"
       render :edit
     end
   end

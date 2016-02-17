@@ -3,6 +3,6 @@ Rails.application.routes.draw do
     resources :tasks, only: [:new, :create, :show, :edit, :update]
   end
   resources :users, only: [:index, :new, :create, :show, :edit, :update]
-  resources :resources, only: [:index, :show, :new, :create]
+  resources :resources, only: [:index, :show, :new, :create, :edit, :update]
   root to: 'home#index'
 end
