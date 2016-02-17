@@ -22,7 +22,9 @@ class TasksController < ApplicationController
   end
 
   def show
-    @user = User.find(@task(:user_id))
+    unless @task.user_id.nil?
+      @user = User.find(@task.user_id)
+    end
   end
 
   def edit

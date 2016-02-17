@@ -3,10 +3,10 @@
 <p><%= @user.role %></p>
 <p><%= @user.status %></p>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <td><%= "#{pluralize(@tasks.count, "tasks")}" %></td>
+      <td><%= "#{pluralize(@tasks.count, "tasks")} currently assigned" %></td>
     </tr>
   </thead>
   <tbody>

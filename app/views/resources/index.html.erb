@@ -1,4 +1,4 @@
-<%= "#{pluralize(@projects.count, "projects")}" %>
+<%= "#{pluralize(@resources.count, "resources")}" %>
 
 <table class="table">
   <thead>
@@ -8,13 +8,13 @@
   </thead>
   <tbody>
     <tr>
-      <% @projects.each do |p| %>
+      <% @resources.each do |r| %>
       <td>
-        <%= link_to p.name, p %>
+        <%= link_to r.name, r %>
       </td>
       <% end %>
     </tr>
   </tbody>
 </table>
 
-<%= link_to('New Project', new_project_path) %>
+<%= link_to('New Resource', new_resource_path) %>
