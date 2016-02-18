@@ -42,7 +42,7 @@
   <thead>
   <tbody>
     <% @resources.each do |r| %><tr>
-      <td><%= link_to r.name, resource_url(@resource) %></td>
+      <td><%= link_to r.name, resource_url(r) %></td>
     </tr><% end %>
   </tbody>
 </table>

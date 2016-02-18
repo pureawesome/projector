@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Listing all resources', type: :feature do
+
   scenario 'returns a message when there are no resources' do
     visit '/'
     click_link 'Resources'
@@ -10,9 +11,9 @@ RSpec.feature 'Listing all resources', type: :feature do
   end
 
   scenario 'it displays the resources' do
-    resource1 = Resource.create!(name: 'Resource 1', description: 'The new resource one')
-    resource2 = Resource.create!(name: 'Resource 2', description: 'The new resource two')
-    resource3 = Resource.create!(name: 'Resource 3', description: 'The new resource three')
+    resource1 = FactoryGirl.create(:resource)
+    resource2 = FactoryGirl.create(:resource)
+    resource3 = FactoryGirl.create(:resource)
 
     visit '/'
     click_link 'Resources'

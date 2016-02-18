@@ -1,5 +1,19 @@
 <h1><%= @resource.name %></h1>
 <p><%= @resource.description %></p>
 
+<table class="table">
+  <thead>
+    <tr>
+      <td><%= "#{pluralize(@projects.count, "projects schedule for resource")}" %></h3>
+      </td>
+    </tr>
+  <thead>
+  <tbody>
+    <% @projects.each do |p| %><tr>
+      <td><%= link_to p.name, project_url(p) %></td>
+    </tr><% end %>
+  </tbody>
+</table>
+
 <p class="btn btn-lg btn-default"><%= link_to('Edit Resource', edit_resource_path(@resource)) %></p>
 <p class="btn btn-default"><%= link_to('Back to Resources', resources_path) %></p>

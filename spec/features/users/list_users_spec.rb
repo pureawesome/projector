@@ -10,9 +10,9 @@ RSpec.feature 'Listing all users', type: :feature do
   end
 
   scenario 'it displays the users' do
-    user1 = User.create!(  first_name: 'Test First', last_name: 'First Last', email: 'test@test.com', role: 1, status: 1)
-    user2 = User.create!(  first_name: 'Test Second', last_name: 'Second Last', email: 'test@test.com', role: 1, status: 1)
-    user3 = User.create!(  first_name: 'Test Third', last_name: 'Third Last', email: 'test@test.com', role: 1, status: 1)
+    user1 = FactoryGirl.create(:user)
+    user2 = FactoryGirl.create(:user)
+    user3 = FactoryGirl.create(:user)
 
     visit '/'
     click_link 'Users'
