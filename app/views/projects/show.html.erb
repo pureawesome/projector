@@ -1,6 +1,7 @@
 <h1><%= @project.name %></h1>
 <p><%= @project.description %></p>
 <p><%= @project.start_date.strftime("Started: %m/%d/%Y") %></p>
+<p><%= @project.start_date %></p>
 <p><%= @project.end_date_projected %></p>
 <p><%= @project.end_date_actual.to_s %></p>
 <p><%= @project.budget %></p>

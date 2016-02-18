@@ -29,10 +29,7 @@
       <%= f.label :cost %>
       <%= f.text_field :cost, :class => "form-control" %>
     </div>
-    <div class="field form-group">
-      <%= f.label :resource_id %>
-      <%= f.select(:resource_id, options_for_select(Resource.all.map {|r| [r.name, r.id]}), {include_blank: "Unassigned"}, {:class => "form-control"})  %>
-    </div>
+
     <div class="actions">
       <%= f.submit %>
     </div>
