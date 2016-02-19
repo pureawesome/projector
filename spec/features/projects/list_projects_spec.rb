@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.feature 'Listing all projects', type: :feature do
+  before do
+    @user = FactoryGirl.create(:user)
+    sign_in(@user)
+  end
+
   scenario 'returns a message when there are no projects to view' do
     visit '/'
     click_link 'Projects'

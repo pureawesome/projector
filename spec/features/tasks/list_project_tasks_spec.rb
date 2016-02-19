@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.feature 'Listing all tasks for project' do
+  before do
+    @user = FactoryGirl.create(:user)
+    sign_in(@user)
+  end
 
   before(:each) do
     @project = FactoryGirl.create(:project)

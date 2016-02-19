@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.feature 'Editing task on a project' do
+  before do
+    @user = FactoryGirl.create(:user)
+    sign_in(@user)
+  end
+
   scenario 'succeeds and shows up on the project page' do
     project = FactoryGirl.create(:project)
 

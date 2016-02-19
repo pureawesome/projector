@@ -23,7 +23,7 @@
     </div>
     <div class="field form-group">
       <%= f.label :user_id %>
-      <%= f.select(:user_id, options_for_select(User.all.map {|u| [u.first_name + ' ' + u.last_name, u.id]}), {include_blank: "Unassigned"}, {:class => "form-control"})  %>
+      <%= f.select(:user_id, options_for_select(User.all.map {|u| [u.name, u.id]}), {include_blank: "Unassigned"}, {:class => "form-control"})  %>
     </div>
     <div class="actions">
       <%= f.submit %>

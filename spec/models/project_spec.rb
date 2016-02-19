@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Project, type: :model do
-  before(:all) do
+  before(:each) do
     @project1 = FactoryGirl.build(:project)
   end
   it 'has a valid factory' do

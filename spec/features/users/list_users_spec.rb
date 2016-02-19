@@ -1,12 +1,9 @@
 require 'rails_helper'
 
 RSpec.feature 'Listing all users', type: :feature do
-  scenario 'returns a message when there are no users to view' do
-    visit '/'
-    click_link 'Users'
-
-    expect(current_url).to eq(users_url)
-    expect(page).to have_content('0 users')
+  before do
+    @user = FactoryGirl.create(:user)
+    sign_in(@user)
   end
 
   scenario 'it displays the users' do
@@ -18,10 +15,10 @@ RSpec.feature 'Listing all users', type: :feature do
     click_link 'Users'
 
     expect(current_url).to eq(users_url)
-    expect(page).to have_content('3 users')
-    expect(page).to have_content(user1.first_name)
-    expect(page).to have_content(user2.first_name)
-    expect(page).to have_content(user3.first_name)
+    expect(page).to have_content('4 users')
+    expect(page).to have_content(user1.name)
+    expect(page).to have_content(user2.name)
+    expect(page).to have_content(user3.name)
   end
 
 

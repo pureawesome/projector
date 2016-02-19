@@ -2,12 +2,8 @@
   <%= render 'shared/errors', object: @user %>
   <fieldset>
     <div class="field form-group">
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name, :class => "form-control" %>
-    </div>
-    <div class="field form-group">
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name, :class => "form-control" %>
+      <%= f.label :name %>
+      <%= f.text_field :name, :class => "form-control" %>
     </div>
     <div class="field form-group">
       <%= f.label :email %>

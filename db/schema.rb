@@ -63,11 +63,11 @@ ActiveRecord::Schema.define(version: 20160212043056) do
   add_index "tasks", ["users_id"], name: "index_tasks_on_users_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "name"
     t.string   "email"
     t.integer  "role"
-    t.integer  "status"
+    t.boolean  "status"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

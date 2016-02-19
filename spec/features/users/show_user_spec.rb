@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.feature 'Viewing a user', type: :feature do
+  before do
+    @user_login = FactoryGirl.create(:user)
+    sign_in(@user_login)
+  end
 
   before(:each) do
     @user = FactoryGirl.create(:user)
@@ -9,8 +13,7 @@ RSpec.feature 'Viewing a user', type: :feature do
   scenario 'shows the fields' do
 
     visit user_url(@user)
-    expect(page).to have_content(@user.first_name)
-    expect(page).to have_content(@user.last_name)
+    expect(page).to have_content(@user.name)
     expect(page).to have_content(@user.email)
     expect(page).to have_content(@user.role)
     expect(page).to have_content(@user.status)

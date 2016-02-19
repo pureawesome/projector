@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Resource, type: :model do
-  before(:all) do
+  before(:each) do
     @resource = FactoryGirl.build(:resource)
   end
   it 'has a valid factory' do
