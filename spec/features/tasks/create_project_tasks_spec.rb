@@ -36,4 +36,20 @@ RSpec.feature 'Adding tasks to a project' do
 
     expect(page).to have_content('Task not saved')
   end
+
+  scenario 'fails if the due date is not provided' do
+
+    project = FactoryGirl.create(:project)
+
+    visit project_url(project)
+
+    click_link 'Create a new task'
+    expect(page.current_url).to eq(new_project_task_url(project))
+
+    fill_in 'task_name', with: 'Test Project Name'
+    fill_in 'task_due_date', with: ''
+    click_button 'Create Task'
+
+    expect(page).to have_content('Task not saved')
+  end
 end

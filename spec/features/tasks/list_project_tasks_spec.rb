@@ -19,9 +19,9 @@ RSpec.feature 'Listing all tasks for project' do
 
   scenario 'returns a message when there are multiple tasks to view' do
 
-    task1 = @project.tasks.create(name: 'Task 1')
-    task2 = @project.tasks.create(name: 'Task 2')
-    task3 = @project.tasks.create(name: 'Task 3')
+    task1 = @project.tasks.create(name: 'Task 1', due_date: '1/1/2016')
+    task2 = @project.tasks.create(name: 'Task 2', due_date: '1/1/2016')
+    task3 = @project.tasks.create(name: 'Task 3', due_date: '1/1/2016')
 
     visit '/'
     click_link 'Projects'

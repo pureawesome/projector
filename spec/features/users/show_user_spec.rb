@@ -19,11 +19,13 @@ RSpec.feature 'Viewing a user', type: :feature do
   context 'shows with related data' do
     scenario 'shows tasks' do
       @project = FactoryGirl.create(:project)
-      task1 = @project.tasks.create(name: 'Task one', user_id: @user.id)
-      task2 = @project.tasks.create(name: 'Task two', user_id: @user.id)
-      task3 = @project.tasks.create(name: 'Task three', user_id: @user.id)
+      task1 = @project.tasks.create(name: 'Task one', user_id: @user.id, due_date: '1/1/2016')
+      task2 = @project.tasks.create(name: 'Task two', user_id: @user.id, due_date: '1/1/2016')
+      task3 = @project.tasks.create(name: 'Task three', user_id: @user.id, due_date: '1/1/2016')
 
       visit user_url(@user)
+
+      visit project_url(@project)
 
       expect(page).to have_content(task1.name)
       expect(page).to have_content(task2.name)
