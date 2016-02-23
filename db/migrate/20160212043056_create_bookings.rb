@@ -1,6 +1,6 @@
-class CreateEnablements < ActiveRecord::Migration
+class CreateBookings < ActiveRecord::Migration
   def change
-    create_table :enablements do |t|
+    create_table :bookings do |t|
       t.integer :project_id
       t.integer :resource_id
 

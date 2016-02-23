@@ -10,6 +10,6 @@ RSpec.describe Resource, type: :model do
   it { is_expected.to have_db_column(:name) }
   it { is_expected.to have_db_column(:description) }
 
-  it { is_expected.to have_many(:enablements) }
+  it { is_expected.to have_many(:bookings) }
   it { is_expected.to have_many(:projects) }
 end

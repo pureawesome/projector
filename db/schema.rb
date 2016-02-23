@@ -16,13 +16,13 @@ ActiveRecord::Schema.define(version: 20160212043056) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "enablements", force: :cascade do |t|
+  create_table "bookings", force: :cascade do |t|
     t.integer "project_id"
     t.integer "resource_id"
   end
 
-  add_index "enablements", ["project_id"], name: "index_enablements_on_project_id", using: :btree
-  add_index "enablements", ["resource_id"], name: "index_enablements_on_resource_id", using: :btree
+  add_index "bookings", ["project_id"], name: "index_bookings_on_project_id", using: :btree
+  add_index "bookings", ["resource_id"], name: "index_bookings_on_resource_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
@@ -72,8 +72,8 @@ ActiveRecord::Schema.define(version: 20160212043056) do
     t.datetime "updated_at"
   end
 
-  add_foreign_key "enablements", "projects"
-  add_foreign_key "enablements", "resources"
+  add_foreign_key "bookings", "projects"
+  add_foreign_key "bookings", "resources"
   add_foreign_key "tasks", "projects"
   add_foreign_key "tasks", "users"
 end

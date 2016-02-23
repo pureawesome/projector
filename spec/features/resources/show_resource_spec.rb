@@ -18,14 +18,14 @@ RSpec.feature 'Viewing a resource', type: :feature do
   end
 
   context 'shows with related data' do
-    scenario 'shows the enablements' do
+    scenario 'shows the bookings' do
       project1 = FactoryGirl.create(:project)
       project2 = FactoryGirl.create(:project)
       project3 = FactoryGirl.create(:project)
 
-      enablement1 = Enablement.create(resource: @resource, project: project1)
-      enablement2 = Enablement.create(resource: @resource, project: project2)
-      enablement3 = Enablement.create(resource: @resource, project: project3)
+      booking1 = Booking.create(resource: @resource, project: project1)
+      booking2 = Booking.create(resource: @resource, project: project2)
+      booking3 = Booking.create(resource: @resource, project: project3)
 
       visit resource_url(@resource)
 

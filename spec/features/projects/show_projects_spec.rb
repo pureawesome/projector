@@ -36,14 +36,14 @@ RSpec.feature 'Viewing a project', type: :feature do
       expect(page).to have_content('Task three')
     end
 
-    scenario 'shows the project enablements' do
+    scenario 'shows the project bookings' do
       resource1 = FactoryGirl.create(:resource)
       resource2 = FactoryGirl.create(:resource)
       resource3 = FactoryGirl.create(:resource)
 
-      enablement1 = Enablement.create(project: @project, resource: resource1)
-      enablement2 = Enablement.create(project: @project, resource: resource2)
-      enablement3 = Enablement.create(project: @project, resource: resource3)
+      booking1 = Booking.create(project: @project, resource: resource1)
+      booking2 = Booking.create(project: @project, resource: resource2)
+      booking3 = Booking.create(project: @project, resource: resource3)
 
       visit project_url(@project)
 

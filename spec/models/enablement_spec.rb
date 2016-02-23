@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Enablement do
+RSpec.describe Booking do
   it { is_expected.to have_db_column(:project_id) }
   it { is_expected.to have_db_column(:resource_id) }
 
