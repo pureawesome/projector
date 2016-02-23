@@ -9,3 +9,5 @@ class CreateBookings < ActiveRecord::Migration
     end
   end
 end
+
+# TODO: Create date fields

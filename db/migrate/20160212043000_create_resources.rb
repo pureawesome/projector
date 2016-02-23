@@ -10,3 +10,5 @@ class CreateResources < ActiveRecord::Migration
     end
   end
 end
+
+# TODO: Remove dates

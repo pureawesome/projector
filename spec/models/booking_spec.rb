@@ -7,3 +7,5 @@ RSpec.describe Booking do
   it { is_expected.to belong_to(:project) }
   it { is_expected.to belong_to(:resource) }
 end
+
+# TODO: Add check for dates
