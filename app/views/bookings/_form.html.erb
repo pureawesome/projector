@@ -1,1 +1,24 @@
-<!-- TODO: Create booking form -->
+<%= form_for @booking do |f| %>
+  <%= render 'shared/errors', object: @booking %>
+  <fieldset>
+    <div class="field form-group">
+      <%= f.label :project_id %>
+      <%= f.select :project_id, Project.all.map {|p| [p.name, p.id]}, :class => "form-control" %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :resource_id %>
+      <%= f.select:resource_id, Resource.all.map {|r| [r.name, r.id]}, :class => "form-control" %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :start_datetime %>
+      <%= f.datetime_field :start_datetime, :class => "form-control"  %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :end_datetime %>
+      <%= f.datetime_field :end_datetime, :class => "form-control"  %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </fieldset>
+<% end %>

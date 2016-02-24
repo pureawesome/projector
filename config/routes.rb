@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:index, :new, :create, :show, :edit, :update]
   resources :resources, only: [:index, :show, :new, :create, :edit, :update]
+  resources :bookings, only: [:new, :create, :show, :edit, :update]
   root to: 'home#index'
 end

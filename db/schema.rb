@@ -17,8 +17,10 @@ ActiveRecord::Schema.define(version: 20160212043056) do
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.integer "project_id"
-    t.integer "resource_id"
+    t.integer  "project_id"
+    t.integer  "resource_id"
+    t.datetime "start_datetime"
+    t.datetime "end_datetime"
   end
 
   add_index "bookings", ["project_id"], name: "index_bookings_on_project_id", using: :btree
@@ -39,8 +41,6 @@ ActiveRecord::Schema.define(version: 20160212043056) do
   create_table "resources", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "start_datetime"
-    t.datetime "end_datetime"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
