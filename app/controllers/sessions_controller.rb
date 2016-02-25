@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    warden.logout
     redirect_to landing_path, notice: "You have been signed out of the application!"
   end
 end
