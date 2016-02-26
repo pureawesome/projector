@@ -1,19 +1,19 @@
 <%= "#{pluralize(@projects.count, "projects")}" %>
 
-<table class="table">
+<table class="display" id="projects">
   <thead>
     <tr>
       <td>Name</td>
+      <td>Description</td>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <% @projects.each do |p| %>
-      <td>
-        <%= link_to p.name, p %>
-      </td>
-      <% end %>
-    </tr>
+    <% @projects.each do |p| %>
+      <tr>
+        <td><%= link_to p.name, p %></td>
+        <td><%= p.description %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 

@@ -33,6 +33,12 @@ gem 'email_validator'
 
 gem 'warden'
 
+gem 'foundation-rails'
+
+gem 'jquery-datatables-rails'
+
+# gem 'jquery-ui-rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -46,7 +52,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
 
-  gem 'bootstrap-sass'
   gem 'autoprefixer-rails'
 end
 
