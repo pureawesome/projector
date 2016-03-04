@@ -33,10 +33,11 @@ gem 'email_validator'
 
 gem 'warden'
 
-gem 'foundation-rails'
+# gem 'foundation-rails'
 
 gem 'jquery-datatables-rails'
 
+gem 'sprockets-es6'
 # gem 'jquery-ui-rails'
 
 # Use Unicorn as the app server
@@ -58,6 +59,7 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem 'letter_opener'
 end
 
 group :test do

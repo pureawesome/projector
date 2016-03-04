@@ -1,6 +1,6 @@
 <% flash.each do |k, v| %>
   <% if v.is_a?(String) %>
-    <div data-alert class="alert-box round <%= k.to_s == 'notice' ? 'sucess' : 'alert' %>">
+    <div data-alert=true class="alert-box round <%= k.to_s == 'notice' ? 'sucess' : 'alert' %>">
       <%= content_tag :div, v %>
       <a href="#" class="close">&times;</a>
     </div>

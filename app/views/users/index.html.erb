@@ -7,13 +7,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <% @users.each do |u| %>
-      <td>
-        <%= link_to(u.name, u) %>
-      </td>
-      <% end %>
-    </tr>
+    <% @users.each do |u| %>
+      <tr>
+        <td>
+          <%= link_to(u.name, u) %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 

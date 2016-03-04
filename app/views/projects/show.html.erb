@@ -19,6 +19,7 @@
       <td>Title</td>
       <td>Due Date</td>
       <td>Status</td>
+      <td>Edit</td>
     </tr>
   <thead>
   <tbody>
@@ -26,6 +27,7 @@
       <td><%= link_to t.name, project_task_url(@project, t) %></td>
       <td><%= t.due_date %></td>
       <td><%= (t.status === 1) ? 'Active' : 'Completed' %></td>
+      <td><%= link_to 'Edit Task', edit_project_task_url(@project, t) %></td>
     </tr><% end %>
   </tbody>
 </table>

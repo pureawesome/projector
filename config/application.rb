@@ -33,5 +33,10 @@ module Projector
     config.active_record.raise_in_transactional_callbacks = true
 
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
+
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'components', 'bootstrap-sass', 'assets', 'fonts')
+
+    config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff|woff2)$)
   end
 end
