@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @tasks = @user.tasks
+    @tasks = @user.tasks.order('status ASC')
   end
 
   def edit

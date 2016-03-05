@@ -40,6 +40,11 @@ class TasksController < ApplicationController
     end
   end
 
+  def destory
+    @task = Task.find(params[:id])
+    @task.destroy
+  end
+
   private
     def task_params
       params.require(:task).permit(:name, :description, :start_date, :due_date, :status)

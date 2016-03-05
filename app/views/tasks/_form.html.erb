@@ -19,7 +19,7 @@
     </div>
     <div class="field form-group">
       <%= f.label :status %>
-      <%= f.select(:status, options_for_select([['Active', 1], ['Completed', 2]], 1), {}, {:class => "form-control"}) %>
+      <%= f.select(:status, options_for_select([['Active', 1], ['Completed', 0]], 1), {}, {:class => "form-control"}) %>
     </div>
     <div class="field form-group">
       <%= f.label :user_id %>

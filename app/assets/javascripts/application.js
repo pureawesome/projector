@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require dataTables/jquery.dataTables
+//= require bootstrap-sass/assets/javascripts/bootstrap-sprockets
 //= require_tree .

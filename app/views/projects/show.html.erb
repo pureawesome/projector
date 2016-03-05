@@ -19,15 +19,20 @@
       <td>Title</td>
       <td>Due Date</td>
       <td>Status</td>
-      <td>Edit</td>
+      <td>Actions</td>
     </tr>
   <thead>
   <tbody>
     <% @tasks.each do |t| %><tr>
       <td><%= link_to t.name, project_task_url(@project, t) %></td>
       <td><%= t.due_date %></td>
-      <td><%= (t.status === 1) ? 'Active' : 'Completed' %></td>
-      <td><%= link_to 'Edit Task', edit_project_task_url(@project, t) %></td>
+      <!-- <td><%= (t.status == 1) ? 'Active' : 'Completed' %></td> -->
+      <td><%= t.status %></td>
+      <td>
+        <span class="glyphicon glyphicon-eye-open"><%= link_to '', project_task_url(@project, t) %></span>
+        <span class="glyphicon glyphicon-pencil"><%= link_to '', edit_project_task_url(@project, t) %></span>
+        <span class="glyphicon glyphicon-trash"><%= link_to '', project_task_url, :confirm => 'Are you sure?', :method => :delete %></span>
+      </td>
     </tr><% end %>
   </tbody>
 </table>

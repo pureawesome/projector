@@ -34,8 +34,8 @@ User.create(
   User.create(
     name: Faker::App.name,
     email: Faker::Internet.email,
-    role: 1,
-    status: 1,
+    role: rand(1),
+    status: rand(1),
     password: 'new!!password',
     password_confirmation: 'new!!password',
   )
@@ -49,7 +49,7 @@ Task.destroy_all
     description: Faker::Company.catch_phrase,
     start_date: Faker::Date.backward(265),
     due_date: Faker::Date.backward(60),
-    status: 1,
+    status: rand(1),
     user_id: User.order("RANDOM()").first.id,
     project_id: Project.order("RANDOM()").first.id
   )
