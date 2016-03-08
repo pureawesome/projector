@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20160212043056) do
     t.text     "description"
     t.datetime "start_date"
     t.datetime "due_date"
-    t.string   "status"
+    t.integer  "status"
     t.integer  "project_id"
     t.integer  "projects_id"
     t.integer  "user_id"

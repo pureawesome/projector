@@ -12,12 +12,12 @@
   </head>
 
   <body>
-    <%= render "layouts/header" %>
-    <%= render 'layouts/messages' %>
-    <div class="row">
-      <div class="columns">
-        <%= yield %>
-      </div>
+    <div class="container">
+      <%= render "layouts/header" %>
+    </div>
+    <div class="container">
+      <%= render 'layouts/messages' %>
+      <%= yield %>
     </div>
   </body>
 </html>

@@ -12,8 +12,8 @@ Project.destroy_all
     name: Faker::App.name,
     description: Faker::Company.catch_phrase,
     start_date: Faker::Date.backward(265),
-    end_date_projected: Faker::Date.backward(60),
-    end_date_actual: Faker::Date.backward(14),
+    end_date_projected: Faker::Date.forward(60),
+    end_date_actual: Faker::Date.forward(365),
     budget: Faker::Number.decimal(4,2),
     cost: Faker::Number.decimal(4,2)
   )
@@ -47,9 +47,9 @@ Task.destroy_all
   Task.create(
     name: Faker::App.name,
     description: Faker::Company.catch_phrase,
-    start_date: Faker::Date.backward(265),
-    due_date: Faker::Date.backward(60),
-    status: 1,
+    start_date: Faker::Date.backward(30),
+    due_date: Faker::Date.forward(60),
+    status: rand(1),
     user_id: User.order("RANDOM()").first.id,
     project_id: Project.order("RANDOM()").first.id
   )
