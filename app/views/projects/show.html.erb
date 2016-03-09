@@ -1,66 +1,76 @@
-<h1><%= @project.name %></h1>
-<p class="btn btn-default pull-right"><%= link_to('Edit Project', edit_project_path(@project)) %></p>
 
-<p><%= @project.description %></p>
-<p><%= @project.start_date %></p>
-<p><%= @project.start_date %></p>
-<p><%= @project.end_date_projected %></p>
-<p><%= @project.end_date_actual.to_s %></p>
-<p><%= @project.budget %></p>
-<p><%= @project.cost %></p>
+<div class="row">
+  <h1><%= @project.name %></h1>
+  <p class="btn btn-default pull-right"><%= link_to('Edit Project', edit_project_path(@project)) %></p>
 
-<table class="table">
-  <thead>
-    <tr>
-      <td colspan="3"><%= "#{pluralize(@tasks.count, "pending tasks")}" %></h3>
-      </td>
-    </tr>
-    <tr>
-      <td>Title</td>
-      <td>Due Date</td>
-      <td>Status</td>
-      <td>Edit</td>
-    </tr>
-  <thead>
-  <tbody>
-    <% @tasks.each do |t| %><tr>
-      <td><%= link_to t.name, project_task_url(@project, t) %></td>
-      <td><%= t.due_date %></td>
-      <td><%= (t.status === 1) ? 'Active' : 'Completed' %></td>
-      <td><%= link_to 'Edit Task', edit_project_task_url(@project, t) %></td>
-    </tr><% end %>
-  </tbody>
-</table>
-<p class="btn btn-default pull-right"><%= link_to('Create a new task', new_project_task_path(@project)) %></p>
+  <p><span class="label label-default">Description</span> <%= @project.description %></p>
+  <p><span class="label label-default">Start Date</span> <%= @project.start_date.strftime("%m/%d/%Y") %></p>
+  <p><span class="label label-default">Projected End Date</span> <%= @project.end_date_projected.strftime("%m/%d/%Y") %></p>
+  <p><span class="label label-default">Actual End Date</span> <%= @project.end_date_actual.strftime("%m/%d/%Y") %></p>
+  <p><span class="label label-default">Budget</span> $<%= @project.budget %></p>
+  <p><span class="label label-default">Cost</span> $<%= @project.cost %></p>
 
-<table class="table">
-  <thead>
-    <tr>
-      <td><%= "#{pluralize(@tasks.count, "booked resources")}" %></h3>
-      </td>
-    </tr>
-    <tr>
-      <td>Resource</td>
-      <td>Time</td>
-    </tr>
-  <thead>
-  <tbody>
-    <% @resources.each do |r| %><tr>
-      <td><%= link_to r.name, resource_url(r) %></td>
-      <td><%= r.start_datetime %> - <%= r.end_datetime %> </td>
-    </tr><% end %>
-  </tbody>
-</table>
-<p class="btn btn-default pull-right"><%= link_to('Book new resource', new_booking_path) %></p>
-<br /><br />
-<p class="btn btn-default"><%= link_to('Back to Projects', projects_path) %></p>
-<br /><br />
-<%= month_calendar attribute: :start_date, events: @tasks do |date, tasks| %>
-  <%= date %>
+  <p class="btn btn-default pull-right"><%= link_to('Back to Projects', projects_path) %></p>
+</div>
 
-  <% tasks.each do |task| %>
-    <div>
-      <%= task.name %>
-    </div>
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <td colspan="3"><%= "#{pluralize(@tasks.count, "pending tasks")}" %></h3>
+        </td>
+      </tr>
+      <tr>
+        <td>Title</td>
+        <td>Due Date</td>
+        <td>Status</td>
+        <td>Edit</td>
+      </tr>
+    <thead>
+    <tbody>
+      <% @tasks.each do |t| %><tr>
+        <td><%= link_to t.name, project_task_url(@project, t) %></td>
+        <td><%= t.due_date %></td>
+        <td><%= (t.status === 1) ? 'Active' : 'Completed' %></td>
+        <td><%= link_to 'Edit Task', edit_project_task_url(@project, t) %></td>
+      </tr><% end %>
+    </tbody>
+  </table>
+  <p class="btn btn-default pull-right"><%= link_to('Create a new task', new_project_task_path(@project)) %></p>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <td><%= "#{pluralize(@tasks.count, "booked resources")}" %></h3>
+          </td>
+        </tr>
+        <tr>
+          <td>Resource</td>
+          <td>Time</td>
+        </tr>
+      <thead>
+      <tbody>
+        <% @bookings.each do |b| %><tr>
+          <td><%= link_to b.resource.name, resource_url(b.resource) %></td>
+          <td><%= b.start_datetime.strftime("%l:%M%P - %m/%d/%Y") %> </td>
+        </tr><% end %>
+      </tbody>
+    </table>
+    <p class="btn btn-default pull-right"><%= link_to('Book new resource', new_booking_path) %></p>
+  </div>
+</div>
+
+<div class="row">
+  <%= month_calendar attribute: :start_date, events: @tasks do |date, tasks| %>
+    <%= date %>
+
+    <% tasks.each do |task| %>
+      <div>
+        <%= task.name %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>

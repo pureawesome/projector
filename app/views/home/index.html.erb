@@ -15,10 +15,29 @@
   </div>
   <div class="col-md-4">
     <h3>Projects – Active Tasks</h3>
-    <%= @projects_by_tasks %>
+    <table class="table table-striped table-bordered table-condensed">
+      <% @projects_by_tasks.each do |p| %>
+        <tr>
+          <td>
+            <%= link_to p.name, project_url(p) %><br/>
+            Active Tasks: <%= p.tasks.count %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
   </div>
   <div class="col-md-4">
     <h3>Upcoming bookings</h3>
+    <table class="table table-striped table-bordered table-condensed">
+      <% @bookings_upcoming.each do |b| %>
+        <tr>
+          <td>
+            Project: <%= link_to b.project.name, b.project %> | Resource: <%= link_to b.resource.name, b.resource %><br />
+            Date: <%= b.start_datetime.strftime("%l:%M%P - %m/%d/%Y") %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
   </div>
 </div>
 <div class="row">

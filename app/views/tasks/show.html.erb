@@ -4,7 +4,7 @@
 <p><%= @task.due_date %></p>
 <p><%= @task.status %></p>
 <% if @user %>
-  <p>Assigned to: <%= @user.first_name %></p>
+  <p>Assigned to: <%= @user.name %></p>
 <% end %>
 <p class="btn btn-lg btn-default"><%= link_to('Edit Task', edit_project_task_path(@project, @task)) %></p>
 <p class="btn btn-default"><%= link_to('Back to Project', project_path(@project)) %></p>
