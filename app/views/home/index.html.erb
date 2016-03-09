@@ -1,1 +1,53 @@
-Welcome to UW RoR Project
+<h1 class="text-center">Welcome to UW RoR Project</h1>
+<div class="row">
+  <div class="col-md-4">
+    <h3>Upcoming Tasks</h3>
+    <table class="table table-striped table-bordered table-condensed">
+      <% @upcoming_tasks.each do |t| %>
+        <tr>
+          <td>
+            <%= link_to t.name, project_task_url(t.project.id, t) %> | Due: <%= t.due_date.strftime("%m/%d/%Y") %><br/>
+            Assigned to: <%= t.user.name %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="col-md-4">
+    <h3>Projects – Active Tasks</h3>
+    <table class="table table-striped table-bordered table-condensed">
+      <% @projects_by_tasks.each do |p| %>
+        <tr>
+          <td>
+            <%= link_to p.name, project_url(p) %><br/>
+            Active Tasks: <%= p.tasks.count %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="col-md-4">
+    <h3>Upcoming bookings</h3>
+    <table class="table table-striped table-bordered table-condensed">
+      <% @bookings_upcoming.each do |b| %>
+        <tr>
+          <td>
+            Project: <%= link_to b.project.name, b.project %> | Resource: <%= link_to b.resource.name, b.resource %><br />
+            Date: <%= b.start_datetime.strftime("%l:%M%P - %m/%d/%Y") %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <h3>Recently Closed Tasks</h3>
+    <table class="table table-striped table-bordered table-condensed">
+      <% @recent_tasks.each do |t| %>
+      <tr><td><s><%= link_to t.name, project_task_url(t.project.id, t) %> – <%= t.user.name %></s></td></tr>
+      <% end %>
+    </table>
+  </div>
+
+</div>

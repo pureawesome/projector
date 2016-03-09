@@ -5,7 +5,7 @@ class CreateTasks < ActiveRecord::Migration
       t.text :description
       t.datetime :start_date
       t.datetime :due_date
-      t.string :status
+      t.integer :status
       t.integer :project_id
       t.references :projects, index: true, foreign_key: true
       t.integer :user_id

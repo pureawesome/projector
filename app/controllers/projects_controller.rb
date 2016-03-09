@@ -21,7 +21,7 @@ class ProjectsController < ApplicationController
 
   def show
     @tasks = @project.tasks
-    @resources = @project.resources
+    @bookings = @project.bookings
   end
 
   def edit
