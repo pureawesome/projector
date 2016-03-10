@@ -11,7 +11,7 @@ RSpec.feature 'Listing all resources', type: :feature do
     click_link 'Resources'
 
     expect(current_url).to eq(resources_url)
-    expect(page).to have_content('0 resources')
+    expect(page).to have_content('0 Available Resources')
   end
 
   scenario 'it displays the resources' do
@@ -23,7 +23,7 @@ RSpec.feature 'Listing all resources', type: :feature do
     click_link 'Resources'
 
     expect(current_url).to eq(resources_url)
-    expect(page).to have_content('3 resources')
+    expect(page).to have_content('3 Available Resources')
     expect(page).to have_content(resource1.name)
     expect(page).to have_content(resource2.name)
     expect(page).to have_content(resource3.name)
