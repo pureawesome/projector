@@ -6,9 +6,13 @@
   <p><span class="label label-default">Description</span> <%= @project.description %></p>
   <p><span class="label label-default">Start Date</span> <%= @project.start_date.strftime("%m/%d/%Y") %></p>
   <p><span class="label label-default">Projected End Date</span> <%= @project.end_date_projected.strftime("%m/%d/%Y") %></p>
-  <p><span class="label label-default">Actual End Date</span> <%= @project.end_date_actual.strftime("%m/%d/%Y") %></p>
+  <% if(@project.end_date_actual) %>
+    <p><span class="label label-default">Actual End Date</span> <%= @project.end_date_actual.strftime("%m/%d/%Y") %></p>
+  <% end %>
   <p><span class="label label-default">Budget</span> $<%= @project.budget %></p>
   <p><span class="label label-default">Cost</span> $<%= @project.cost %></p>
+
+
 
   <p class="btn btn-default pull-right"><%= link_to('Back to Projects', projects_path) %></p>
 </div>
@@ -35,7 +39,7 @@
         <td>
           <span class="glyphicon glyphicon-eye-open"><%= link_to '', project_task_url(@project, t) %></span>
           <span class="glyphicon glyphicon-pencil"><%= link_to '', edit_project_task_url(@project, t) %></span>
-          <span class="glyphicon glyphicon-trash"><%= link_to '', project_task_url, :confirm => 'Are you sure?', :method => :delete %></span>
+          <span class="glyphicon glyphicon-trash"><%= link_to '', project_task_url(@project, t), :confirm => 'Are you sure?', :method => :delete %></span>
         </td>
       </tr><% end %>
     </tbody>

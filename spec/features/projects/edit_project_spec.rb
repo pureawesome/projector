@@ -15,7 +15,7 @@ RSpec.feature 'Editing a new project', type: :feature do
     fill_in 'project_name', with: 'Test Project'
     fill_in 'project_description', with: 'Test Project Description'
     fill_in 'project_start_date', with: '1/1/15'
-    fill_in 'project_end_date_projected', with: '12/31/15'
+    fill_in 'project_end_date_projected', with: Faker::Date.forward(60)
     fill_in 'project_budget', with: 3000
     click_button 'Create Project'
 

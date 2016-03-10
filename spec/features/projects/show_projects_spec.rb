@@ -15,9 +15,9 @@ RSpec.feature 'Viewing a project', type: :feature do
     visit project_url(@project)
     expect(page).to have_content(@project.name)
     expect(page).to have_content(@project.description)
-    expect(page).to have_content(@project.start_date)
-    expect(page).to have_content(@project.end_date_actual)
-    expect(page).to have_content(@project.end_date_projected)
+    expect(page).to have_content(@project.start_date.strftime("%m/%d/%Y"))
+    expect(page).to have_content(@project.end_date_actual.strftime("%m/%d/%Y"))
+    expect(page).to have_content(@project.end_date_projected.strftime("%m/%d/%Y"))
     expect(page).to have_content(@project.budget)
     expect(page).to have_content(@project.cost)
   end
@@ -31,9 +31,9 @@ RSpec.feature 'Viewing a project', type: :feature do
 
       visit project_url(@project)
 
-      expect(page).to have_content('Task one')
-      expect(page).to have_content('Task two')
-      expect(page).to have_content('Task three')
+      expect(page).to have_content(task1.name)
+      expect(page).to have_content(task2.name)
+      expect(page).to have_content(task3.name)
     end
 
     scenario 'shows the project bookings' do
@@ -41,9 +41,9 @@ RSpec.feature 'Viewing a project', type: :feature do
       resource2 = FactoryGirl.create(:resource)
       resource3 = FactoryGirl.create(:resource)
 
-      booking1 = Booking.create(project: @project, resource: resource1)
-      booking2 = Booking.create(project: @project, resource: resource2)
-      booking3 = Booking.create(project: @project, resource: resource3)
+      Booking.create(project: @project, resource: resource1, start_datetime: Faker::Time.forward(30))
+      Booking.create(project: @project, resource: resource2, start_datetime: Faker::Time.forward(30))
+      Booking.create(project: @project, resource: resource3, start_datetime: Faker::Time.forward(30))
 
       visit project_url(@project)
 

@@ -11,6 +11,9 @@ RSpec.feature 'User sign in' do
     click_button "Sign In"
 
     expect(current_path).to eq(root_path)
+    expect(page).to have_content("Your Account")
+
+    click_link "Your Account"
     expect(page).to have_content(user.email)
   end
 end
