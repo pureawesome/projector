@@ -18,7 +18,7 @@ RSpec.feature 'Listing all tasks for project' do
     click_link @project.name
     expect(page.current_url).to eq(project_url(@project))
 
-    expect(page).to have_content('0 pending tasks')
+    expect(page).to have_content('0 assigned tasks')
   end
 
   scenario 'returns a message when there are multiple tasks to view' do
@@ -34,7 +34,7 @@ RSpec.feature 'Listing all tasks for project' do
     click_link @project.name
     expect(page.current_url).to eq(project_url(@project))
 
-    expect(page).to have_content('3 pending tasks')
+    expect(page).to have_content('3 assigned tasks')
     expect(page).to have_content(task3.name)
     expect(page).to have_content(task2.name)
     expect(page).to have_content(task1.name)
