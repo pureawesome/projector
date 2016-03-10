@@ -1,19 +1,40 @@
-<h1><%= @resource.name %></h1>
-<p><%= @resource.description %></p>
+<div class="row">
+  <div class="col-md-12">
+    <h1><%= @resource.name %></h1>
+    <p><%= @resource.description %></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <td colspan="2"><%= "#{pluralize(@bookings.count, "upcoming bookings")}" %></td>
+        </tr>
+        <tr>
+          <td>Project</td>
+          <td>Booking Time</td>
+        </tr>
+      <thead>
+      <tbody>
+        <% @bookings.each do |b| %><tr>
+          <td><%= link_to b.project.name, project_url(b.project.id) %></td>
+          <td><%= b.start_datetime %></td>
+        </tr><% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <%= month_calendar attribute: :start_datetime, events: @bookings do |date, bookings| %>
+      <%= date %>
 
-<table class="table">
-  <thead>
-    <tr>
-      <td><%= "#{pluralize(@projects.count, "projects using resource")}" %></h3>
-      </td>
-    </tr>
-  <thead>
-  <tbody>
-    <% @projects.each do |p| %><tr>
-      <td><%= link_to p.name, project_url(p) %></td>
-    </tr><% end %>
-  </tbody>
-</table>
-
+      <% bookings.each do |booking| %>
+        <div>
+          <%= booking.project.name %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 <p class="btn btn-lg btn-default"><%= link_to('Edit Resource', edit_resource_path(@resource)) %></p>
 <p class="btn btn-default"><%= link_to('Back to Resources', resources_path) %></p>

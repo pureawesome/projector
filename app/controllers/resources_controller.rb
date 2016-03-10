@@ -2,7 +2,7 @@ class ResourcesController < ApplicationController
   before_action :set_resource, only: [:show, :update, :edit]
 
   def index
-    @resources = Resource.all
+    @resources = Resource.all.order("name ASC")
   end
 
   def new
@@ -21,6 +21,7 @@ class ResourcesController < ApplicationController
 
   def show
     @projects = @resource.projects
+    @bookings = @resource.bookings
   end
 
   def edit

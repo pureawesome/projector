@@ -1,20 +1,13 @@
-<%= "#{pluralize(@resources.count, "resources")}" %>
-
-<table class="table">
-  <thead>
-    <tr>
-      <td>Name</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <% @resources.each do |r| %>
-      <td>
-        <%= link_to r.name, r %>
-      </td>
-      <% end %>
-    </tr>
-  </tbody>
-</table>
-
-<%= link_to('New Resource', new_resource_path) %>
+<h1 class="text-center"><%= "#{pluralize(@resources.count, "Available Resources")}" %></h1>
+<div class="row">
+  <ul class="resources-list list-unstyled">
+    <% @resources.each do |r| %>
+      <li class="col-xs-6 col-md-3">
+        <%= link_to r.name, r, class: "h4" %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div class="row">
+  <%= link_to('New Resource', new_resource_path, class: "btn btn-default pull-right") %>
+</div>
