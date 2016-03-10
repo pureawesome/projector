@@ -18,40 +18,40 @@
 </div>
 
 <div class="row">
-  <table class="table">
-    <thead>
-      <tr>
-        <td colspan="3"><%= "#{pluralize(@tasks.count, "assigned tasks")}" %></h3>
-        </td>
-      </tr>
-      <tr>
-        <td>Title</td>
-        <td>Due Date</td>
-        <td>Status</td>
-        <td colspan="3">Actions</td>
-      </tr>
-    <thead>
-    <tbody>
-      <% @tasks.each do |t| %><tr>
-        <td><%= link_to t.name, project_task_url(@project, t) %></td>
-        <td><%= t.due_date %></td>
-        <td><%= (t.status === 1) ? 'Active' : 'Completed' %></td>
-        <td><%= link_to 'Show', project_task_url(@project, t), class: "glyphicon glyphicon-eye-open" %></td>
-        <td><%= link_to 'Edit', edit_project_task_url(@project, t), class: "glyphicon glyphicon-pencil" %></span></td>
-        <td><%= link_to 'Trash', project_task_url(@project, t), :confirm => 'Are you sure?', :method => :delete, class: "glyphicon glyphicon-trash" %></td>
-        </td>
-      </tr><% end %>
-    </tbody>
-  </table>
-  <p class="btn btn-default pull-right"><%= link_to('Create a new task', new_project_task_path(@project)) %></p>
-</div>
+  <div class="col-md-8">
+      <table class="table">
+      <thead>
+        <tr>
+          <td colspan="7 text-center"><%= "#{pluralize(@tasks.count, "assigned tasks")}" %></h3>
+          </td>
+        </tr>
+        <tr>
+          <td>Title</td>
+          <td>Due Date</td>
+          <td>Status</td>
+          <td colspan="3">Actions</td>
+        </tr>
+      <thead>
+      <tbody>
+        <% @tasks.each do |t| %><tr class="<%= (t.status === 1) ? '' : 'active text-muted' %>">
+          <td><%= link_to t.name, project_task_url(@project, t) %></td>
+          <td><%= t.due_date.strftime("%m/%d/%Y") %></td>
+          <td><%= (t.status === 1) ? 'Active' : 'Completed' %></td>
+          <td><%= link_to '', project_task_url(@project, t), class: "glyphicon glyphicon-eye-open" %></td>
+          <td><%= link_to '', edit_project_task_url(@project, t), class: "glyphicon glyphicon-pencil" %></span></td>
+          <td><%= link_to '', project_task_url(@project, t), :confirm => 'Are you sure?', :method => :delete, class: "glyphicon glyphicon-trash" %></td>
+          </td>
+        </tr><% end %>
+      </tbody>
+    </table>
+    <p class="btn btn-default pull-right"><%= link_to('Create a new task', new_project_task_path(@project)) %></p>
+  </div>
 
-<div class="row">
-  <div class="col-md-6">
+  <div class="col-md-4">
     <table class="table">
       <thead>
         <tr>
-          <td><%= "#{pluralize(@tasks.count, "booked resources")}" %></h3>
+          <td colspan="2"><%= "#{pluralize(@bookings.count, "booked resources")}" %></h3>
           </td>
         </tr>
         <tr>

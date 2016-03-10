@@ -37,8 +37,8 @@ User.create(
   User.create(
     name: Faker::App.name,
     email: Faker::Internet.email,
-    role: rand(1),
-    status: rand(1),
+    role: rand(2),
+    status: rand(2),
     password: 'new!!password',
     password_confirmation: 'new!!password',
   )
@@ -50,7 +50,7 @@ end
     description: Faker::Company.catch_phrase,
     start_date: Faker::Date.backward(30),
     due_date: Faker::Date.forward(60),
-    status: rand(1),
+    status: rand(2),
     user_id: User.order("RANDOM()").first.id,
     project_id: Project.order("RANDOM()").first.id
   )
