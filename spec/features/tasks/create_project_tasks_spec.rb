@@ -22,7 +22,7 @@ RSpec.feature 'Adding tasks to a project' do
 
     expect(page.current_url).to eq(project_task_url(@project, Task.last))
     expect(page).to have_content('Test Task')
-    expect(page).to have_content(Task.last.due_date)
+    expect(page).to have_content(get_date(Task.last.due_date))
 
     click_link 'Back to Project'
     expect(page.current_url).to eq(project_url(@project))

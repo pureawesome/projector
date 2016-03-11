@@ -20,10 +20,14 @@ module ApplicationHelper
   end
 
   def get_date(utc)
-    utc.strftime("%m/%d/%Y")
+    unless utc.nil?
+      utc.strftime("%m/%d/%Y")
+    end
   end
 
   def get_datetime(utc)
-    utc.strftime("%l:%M%P - %m/%d/%Y")
+    unless utc.nil?
+      utc.strftime("%l:%M%P - %m/%d/%Y")
+    end
   end
 end

@@ -15,8 +15,8 @@ RSpec.feature 'Viewing a user', type: :feature do
     visit user_url(@user)
     expect(page).to have_content(@user.name)
     expect(page).to have_content(@user.email)
-    expect(page).to have_content(@user.role)
-    expect(page).to have_content(@user.status)
+    expect(page).to have_content(get_role(@user.role))
+    expect(page).to have_content(get_status(@user.status))
   end
 
   context 'shows with related data' do
