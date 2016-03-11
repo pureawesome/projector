@@ -1,3 +1,3 @@
-$(() => {
+$(function(){
   $('#projects').dataTable();
  });
