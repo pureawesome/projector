@@ -37,7 +37,7 @@ User.create(
   User.create(
     name: Faker::App.name,
     email: Faker::Internet.email,
-    role: rand(2),
+    role: rand(4),
     status: rand(2),
     password: 'new!!password',
     password_confirmation: 'new!!password',

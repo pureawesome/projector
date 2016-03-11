@@ -1,10 +1,10 @@
 <h1><%= @task.name %></h1>
-<p><%= @task.description %></p>
-<p><%= @task.start_date %></p>
-<p><%= @task.due_date %></p>
-<p><%= @task.status %></p>
+<p><span class="label label-default">Description</span> <%= @task.description %></p>
+<p><span class="label label-default">Start Date</span> <%= get_date(@task.start_date) %></p>
+<p><span class="label label-default">Due Date</span> <%= get_date(@task.due_date) %></p>
+<p><span class="label label-default">Status</span> <%= @task.status %></p>
 <% if @user %>
-  <p>Assigned to: <%= @user.name %></p>
+  <p><span class="label label-default">Assigned to:</span> <%= @user.name %></p>
 <% end %>
 <p class="btn btn-lg btn-default"><%= link_to('Edit Task', edit_project_task_path(@project, @task)) %></p>
 <p class="btn btn-default"><%= link_to('Back to Project', project_path(@project)) %></p>

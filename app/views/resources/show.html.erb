@@ -19,7 +19,7 @@
       <tbody>
         <% @bookings.each do |b| %><tr>
           <td><%= link_to b.project.name, project_url(b.project.id) %></td>
-          <td><%= b.start_datetime %></td>
+          <td><%= get_datetime(b.start_datetime) %></td>
         </tr><% end %>
       </tbody>
     </table>
